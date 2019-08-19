@@ -1,0 +1,68 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body, html {
+    position: relative;
+    height: 100%;
+    background-image: url("../images/trivia.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+.one {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+}
+.playgame {
+    font-size: 90px;
+}
+.gameone {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    padding: 50px;
+}
+.trivia {
+    font-size: 70px;
+    z-index: 1;
+}
+.gametwo {
+    position: absolute;
+    top: 70%;
+    left: 12%;
+    padding: 50px;
+}
+.gamethree {
+    position: absolute;
+    top: 83%;
+    left: 42%;
+    padding: 50px;
+}
+.gamefour {
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    padding: 50px;
+}
+.gamefive {
+    position: absolute;
+    top: 50%;
+    left: 74%;
+    padding: 50px;
+}
+.back:hover {
+    background-image: url("../images/colorwheel_burned.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
