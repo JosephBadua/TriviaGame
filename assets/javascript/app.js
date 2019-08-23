@@ -1,4 +1,4 @@
-var timer = 30
+var timer = 10
 var correctAnswers = 0
 var incorrectAnswers = 0
 var questionUnanswered = 0
@@ -14,6 +14,8 @@ var english = false
 var science = false
 var history = false
 var entertainment = false
+
+
 
 $(document).ready(function() {
     $(".gameone").hide();
@@ -39,6 +41,7 @@ $(document).ready(function() {
     $(".option2").hide();
     $(".option3").hide();
     $(".option4").hide();
+    $(".resetgame").hide();
     $(".playgame").click(function() {
         $(".one").hide();
         $(".gameone").show();
@@ -47,6 +50,36 @@ $(document).ready(function() {
         $(".gamefour").show();
         $(".gamefive").show();
     });
+
+    $(".resetgame").click(function() {
+        $(".instructions").hide();
+        $(".instruct").hide();
+        $(".instructone").hide();
+        $(".instructtwo").hide();
+        $(".instructthree").hide();
+        $(".instructfour").hide();
+        $(".math").hide();
+        $(".english").hide();
+        $(".history").hide();
+        $(".science").hide();
+        $(".entertainment").hide();
+        $(".answerimg").hide();
+        $(".question").hide();
+        $(".timer").hide();
+        $(".option1").hide();
+        $(".option2").hide();
+        $(".option3").hide();
+        $(".option4").hide();
+        $(".resetgame").hide();
+        $(".gameone").show();
+        $(".gametwo").show();
+        $(".gamethree").show();
+        $(".gamefour").show();
+        $(".gamefive").show();
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+    });
+
     $(".gameone").click(function(){
         math = true;
         $(".gameone").hide();
@@ -137,27 +170,95 @@ $(document).ready(function() {
             $(".instructfour").hide();
             $(".math").hide();
             mathFirst();
+            startTimer();
             $(".option1").click(function() {
                 if (math1) {
                     setTimeout( function() {
-                        hide()
+                        $(".timer").hide();
+                        hide() 
                         $(".answerimg").show();
                         $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
                         $(".question").text("Correct. The first three digits are 3.14");
                         correctAnswers++;
                         math1 = false;
+                        math2 = true;
                         console.log(correctAnswers)
                         setTimeout( function() {
                             $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
                             mathSecond();
                             show();
                         }, 2500);
-                    }, 100);
+                    }, 100); 
+                } else if (math2) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. 20% of 2 is 0.4");
+                        incorrectAnswers++;
+                        math2 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathThird();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math3 = true;
+                } else if (math3) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (d) 24");
+                        incorrectAnswers++;
+                        math3 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFourth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math4 = true;
+                }  else if (math4) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Correct! The answer is (a) 5(x-4)(x+1)");
+                        correctAnswers++;
+                        math4 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFifth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math5 = true;
                 }
             });
+
             $(".option2").click(function() {
                 if (math1) {
                     setTimeout( function() {
+                        $(".timer").hide();
                         hide()
                         $(".answerimg").show();
                         $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
@@ -167,15 +268,81 @@ $(document).ready(function() {
                         console.log(incorrectAnswers);
                         setTimeout( function() {
                             $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
                             mathSecond();
                             show();
                         }, 2500);
                     }, 100); 
+                   math2 = true;
+                } else if (math2) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. 20% of 2 is 0.4");
+                        incorrectAnswers++;
+                        math2 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathThird();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math3 = true;
+                } else if (math3) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (d) 24");
+                        incorrectAnswers++;
+                        math3 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFourth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math4 = true;
+                }  else if (math4) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (a) 5(x-4)(x+1)");
+                        incorrectAnswers++;
+                        math4 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFifth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math5 = true;
                 }
             });
+
             $(".option3").click(function() {
                 if (math1) {
                     setTimeout( function() {
+                        $(".timer").hide();
                         hide()
                         $(".answerimg").show();
                         $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
@@ -185,17 +352,84 @@ $(document).ready(function() {
                         console.log(incorrectAnswers);
                         setTimeout( function() {
                             $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
                             mathSecond();
                             show();
                         }, 2500);
                     }, 100); 
-                }
-            });
-            $(".option4").click(function() {
-                if (math1) {
+                   math2 = true;
+                } else if (math2) {
+                    setTimeout( function() {
+                        $(".timer").hide();
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Correct. 20% of 2 is 0.4");
+                        correctAnswers++;
+                        math2 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathThird();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                   math3 = true;
+                }  else if (math3) {
                     setTimeout( function() {
                         hide()
                         $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (d) 24");
+                        incorrectAnswers++;
+                        math3 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFourth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math4 = true;
+                }  else if (math4) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (a) 5(x-4)(x+1)");
+                        incorrectAnswers++;
+                        math4 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFifth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math5 = true;
+                }
+            });
+           
+            $(".option4").click(function() {
+                if (math1) {
+                    setTimeout( function() {
+                        $(".timer").hide();
+                        hide()
+                        $(".answerimg").show();
                         $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
                         $(".question").text("Incorrect. The first three digits are 3.14");
                         incorrectAnswers++;
@@ -203,10 +437,74 @@ $(document).ready(function() {
                         console.log(incorrectAnswers);
                         setTimeout( function() {
                             $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
                             mathSecond();
                             show();
                         }, 2500);
                     }, 100); 
+                    math2 = true;
+                } else if (math2) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. 20% of 2 is 0.4");
+                        incorrectAnswers++;
+                        math2 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathThird();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math3 = true;
+                } else if (math3) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Correct! The answer is (d) 24");
+                        correctAnswers++;
+                        math3 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFourth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math4 = true;
+                } else if (math4) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (a) 5(x-4)(x+1)");
+                        incorrectAnswers++;
+                        math4 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            timer = 10
+                            timing = setInterval(startTimer, 10000);
+                            clearInterval(timing);
+                            mathFifth();
+                            show();
+                        }, 2500);
+                    }, 100); 
+                    math5 = true;
                 }
             });
        };
@@ -215,31 +513,198 @@ $(document).ready(function() {
        
         function mathFirst() {
         $(".question").text("What are the first three digits of pie");
-        $(".option1").text("3.14");
-        $(".option2").text("3.41");
-        $(".option3").text("4.13");
-        $(".option4").text("4.31");
+        $(".option1").text("(a) 3.14");
+        $(".option2").text("(b) 3.41");
+        $(".option3").text("(c) 4.13");
+        $(".option4").text("(d) 4.31");
         math1 = true;
         }
-    
+
+
         function mathSecond() {
+        $(".timer").show();
+        $(".timer").text("Seconds Left: " + timer);
         $(".question").text("What is 20% of 2");
-        $(".option1").text("20");
-        $(".option2").text("4");
-        $(".option3").text("0.4");
-        $(".option4").text("0.04");
+        $(".option1").text("(a) 20");
+        $(".option2").text("(b) 4");
+        $(".option3").text("(c) 0.4");
+        $(".option4").text("(d) 0.04");
+        }
+
+        function mathThird() {
+        $(".timer").show();
+        $(".timer").text("Seconds Left: " + timer);
+        $(".question").text("Find the value of 3 + 2 • (8 – 3)");
+        $(".option1").text("(a) 25"); 
+        $(".option2").text("(b) 13");
+        $(".option3").text("(c) 17");
+        $(".option4").text("(d) 24"); // Correct
+        }
+
+        function mathFourth() {
+        $(".timer").show();
+        $(".timer").text("Seconds Left: " + timer);
+        $(".question").text("Factor: 5x2 – 15x – 20");
+        $(".option1").text("(a) 5(x-4)(x+1)"); // Correct
+        $(".option2").text("(b) -2(x-4)(x+5)");
+        $(".option3").text("(c) -5(x+4)(x-1)");
+        $(".option4").text("(d) 5(x+4)(x+1)");
+        }
+
+        function mathFifth() {
+        $(".timer").show();
+        $(".timer").text("Seconds Left: " + timer);
+        $(".question").text("Combine Terms: 12a + 26b -4b – 16a");
+        $(".option1").text("(a) 4a + 22b"); 
+        $(".option2").text("(b) -28a + 30b");
+        $(".option3").text("(c) -4a + 22b"); // Correct
+        $(".option4").text("(d) 28a + 30b");
+        }
+
+        function endScreen() {
+        hide();
+        $(".question").show();
+        $(".question").text("Congratulations! You finished the quiz!");
+        $(".timer").show();
+        $(".timer").text("This is how you did");
+        $(".option1").text("Correct Answers: " + correctAnswers);
+        $(".option2").text("Incorrect Answers: " + incorrectAnswers);
+        $(".option3").text("");
+        $(".option4").text("");
+        $(".resetgame").show();
+
         }
         function hide() {
+            $(".timer").hide();
             $(".option1").hide();
             $(".option2").hide();
             $(".option3").hide();
             $(".option4").hide();
         }
         function show() {
+            $(".timer").show();
             $(".option1").show();
             $(".option2").show();
             $(".option3").show();
             $(".option4").show();
+        }
+
+         function startTimer() {
+         var timing = setInterval(function(){
+                $('.timer').text((timer--) + " Seconds Left");
+                if (timer === -1) {
+                    if (math1) {
+                        setTimeout( function() {
+                            hide()
+                            clearInterval(timing);
+                            $(".answerimg").show();
+                            $(".timer").text("");
+                            $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
+                            $(".question").text("Times Up! The first three digits are 3.14");
+                            incorrectAnswers++;
+                            math1 = false;
+                            console.log(incorrectAnswers);
+                            setTimeout( function() {
+                                $(".answerimg").hide();
+                                mathSecond();
+                                show();
+                            timer = 10
+                            math2 = true;
+                            $(".timer").text((timer--) + " Seconds Left")
+                            }, 2500);
+                        }, 500); 
+                        timing = setInterval(startTimer, 10000);
+                    }
+                    if (math2) {
+                        setTimeout( function() {
+                            hide()
+                            clearInterval(timing);
+                            $(".answerimg").show();
+                            $(".timer").text("");
+                            $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
+                            $(".answerimg").css('background-size', 'contain');
+                            $(".question").text("Times Up! 20% of 2 is 0.4");
+                            incorrectAnswers++;
+                            math2 = false;
+                            console.log(incorrectAnswers);
+                            setTimeout( function() {
+                                $(".answerimg").hide();
+                                mathThird();
+                                show();
+                            timer = 10
+                            math3 = true;
+                            $(".timer").text((timer--) + " Seconds Left")
+                            }, 2500);
+                        }, 500); 
+                        timing = setInterval(startTimer, 10000);
+                    }
+                    if (math3) {
+                        setTimeout( function() {
+                            hide()
+                            clearInterval(timing);
+                            $(".answerimg").show();
+                            $(".timer").text("");
+                            $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
+                            $(".answerimg").css('background-size', 'contain');
+                            $(".question").text("Times Up! The correct answer is (d) 24");
+                            incorrectAnswers++;
+                            math3 = false;
+                            console.log(incorrectAnswers);
+                            setTimeout( function() {
+                                $(".answerimg").hide();
+                                mathFourth();
+                                show();
+                            timer = 10
+                            math4 = true;
+                            $(".timer").text((timer--) + " Seconds Left")
+                            }, 2500);
+                        }, 500); 
+                        timing = setInterval(startTimer, 10000);
+                    }
+                    if (math4) {
+                        setTimeout( function() {
+                            hide()
+                            $(".answerimg").show();
+                            $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
+                            $(".answerimg").css('background-size', 'contain');
+                            $(".question").text("Times Up! The correct answer is (a) 5(x-4)(x+1)");
+                            incorrectAnswers++;
+                            math4 = false;
+                            console.log(incorrectAnswers);
+                            setTimeout( function() {
+                                $(".answerimg").hide();
+                                timer = 10
+                                timing = setInterval(startTimer, 10000);
+                                clearInterval(timing);
+                                mathFifth();
+                                show();
+                            }, 2500);
+                        }, 100); 
+                        math5 = true;
+                    }
+                    if (math5) {
+                        setTimeout( function() {
+                            hide()
+                            $(".answerimg").show();
+                            $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
+                            $(".answerimg").css('background-size', 'contain');
+                            $(".question").text("Times Up! The correct answer is (a) 5(x-4)(x+1)");
+                            incorrectAnswers++;
+                            math5 = false;
+                            console.log(incorrectAnswers);
+                            setTimeout( function() {
+                                $(".answerimg").hide();
+                                timer = 10
+                                timing = setInterval(startTimer, 10000);
+                                clearInterval(timing);
+                                endScreen();
+                                show();
+                            }, 2500);
+                        }, 100); 
+                    }
+                } 
+              }, 1000);
+              
         }
     });
 });
