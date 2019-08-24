@@ -110,6 +110,9 @@ body, html {
     left: 40%;   
     font-size: 90px;
 }
+.resetgame {
+    left: 31%;  
+}
 .question  {
     font-size: 70px;
     width: 75%;
@@ -123,7 +126,7 @@ body, html {
     font-size: 50px;
     position: absolute;
     top: 35%;
-    left: 39%;   
+    left: 37%;   
 }
 .option1 {
     font-size: 70px;
@@ -165,7 +168,7 @@ body, html {
     height: 30%;
     border: 5px solid white;
     position: absolute;
-    top: 52%;
+    top: 40%;
     left: 34.5%;
     width: 32%;
 }

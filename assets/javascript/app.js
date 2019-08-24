@@ -51,34 +51,6 @@ $(document).ready(function() {
         $(".gamefive").show();
     });
 
-    $(".resetgame").click(function() {
-        $(".instructions").hide();
-        $(".instruct").hide();
-        $(".instructone").hide();
-        $(".instructtwo").hide();
-        $(".instructthree").hide();
-        $(".instructfour").hide();
-        $(".math").hide();
-        $(".english").hide();
-        $(".history").hide();
-        $(".science").hide();
-        $(".entertainment").hide();
-        $(".answerimg").hide();
-        $(".question").hide();
-        $(".timer").hide();
-        $(".option1").hide();
-        $(".option2").hide();
-        $(".option3").hide();
-        $(".option4").hide();
-        $(".resetgame").hide();
-        $(".gameone").show();
-        $(".gametwo").show();
-        $(".gamethree").show();
-        $(".gamefour").show();
-        $(".gamefive").show();
-        correctAnswers = 0;
-        incorrectAnswers = 0;
-    });
 
     $(".gameone").click(function(){
         math = true;
@@ -252,6 +224,22 @@ $(document).ready(function() {
                         }, 2500);
                     }, 100); 
                     math5 = true;
+                } else if (math5) {
+                       setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Incorrect. The correct answer is (c) -4a + 22b");
+                        incorrectAnswers++;
+                        math5 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                        $(".answerimg").hide();
+                        endScreen();
+                        $(".text").hide();
+                    }, 2500);
+                }, 100); 
                 }
             });
 
@@ -336,7 +324,23 @@ $(document).ready(function() {
                         }, 2500);
                     }, 100); 
                     math5 = true;
-                }
+                } else if (math5) {
+                setTimeout( function() {
+                    hide()
+                    $(".answerimg").show();
+                    $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
+                    $(".answerimg").css('background-size', 'contain');
+                    $(".question").text("Incorrect. The correct answer is (c) -4a + 22b");
+                    incorrectAnswers++;
+                    math5 = false;
+                    console.log(incorrectAnswers);
+                    setTimeout( function() {
+                        $(".answerimg").hide();
+                        endScreen();
+                        $(".text").hide();
+                    }, 2500);
+                }, 100); 
+            }
             });
 
             $(".option3").click(function() {
@@ -421,9 +425,25 @@ $(document).ready(function() {
                         }, 2500);
                     }, 100); 
                     math5 = true;
+                } else if (math5) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Correct! The answer is (c) -4a + 22b");
+                        correctAnswers++;
+                        math5 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            endScreen();
+                            $(".text").hide();
+                        }, 2500);
+                    }, 100); 
                 }
             });
-           
+
             $(".option4").click(function() {
                 if (math1) {
                     setTimeout( function() {
@@ -505,6 +525,22 @@ $(document).ready(function() {
                         }, 2500);
                     }, 100); 
                     math5 = true;
+                } else if (math5) {
+                    setTimeout( function() {
+                        hide()
+                        $(".answerimg").show();
+                        $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
+                        $(".answerimg").css('background-size', 'contain');
+                        $(".question").text("Times Up! The correct answer is (c) -4a + 22b");
+                        incorrectAnswers++;
+                        math5 = false;
+                        console.log(incorrectAnswers);
+                        setTimeout( function() {
+                            $(".answerimg").hide();
+                            endScreen();
+                            $(".timer").hide();
+                        }, 2500);
+                    }, 100); 
                 }
             });
        };
@@ -512,7 +548,7 @@ $(document).ready(function() {
 
        
         function mathFirst() {
-        $(".question").text("What are the first three digits of pie");
+        $(".question").text("What are the first three digits of pi");
         $(".option1").text("(a) 3.14");
         $(".option2").text("(b) 3.41");
         $(".option3").text("(c) 4.13");
@@ -523,7 +559,7 @@ $(document).ready(function() {
 
         function mathSecond() {
         $(".timer").show();
-        $(".timer").text("Seconds Left: " + timer);
+        $(".timer").text("You have: " + timer + " seconds left");
         $(".question").text("What is 20% of 2");
         $(".option1").text("(a) 20");
         $(".option2").text("(b) 4");
@@ -533,7 +569,7 @@ $(document).ready(function() {
 
         function mathThird() {
         $(".timer").show();
-        $(".timer").text("Seconds Left: " + timer);
+        $(".timer").text("You have: " + timer + " seconds left");
         $(".question").text("Find the value of 3 + 2 • (8 – 3)");
         $(".option1").text("(a) 25"); 
         $(".option2").text("(b) 13");
@@ -543,7 +579,7 @@ $(document).ready(function() {
 
         function mathFourth() {
         $(".timer").show();
-        $(".timer").text("Seconds Left: " + timer);
+        $(".timer").text("You have: " + timer + " seconds left");
         $(".question").text("Factor: 5x2 – 15x – 20");
         $(".option1").text("(a) 5(x-4)(x+1)"); // Correct
         $(".option2").text("(b) -2(x-4)(x+5)");
@@ -553,7 +589,7 @@ $(document).ready(function() {
 
         function mathFifth() {
         $(".timer").show();
-        $(".timer").text("Seconds Left: " + timer);
+        $(".timer").text("You have: " + timer + " seconds left");
         $(".question").text("Combine Terms: 12a + 26b -4b – 16a");
         $(".option1").text("(a) 4a + 22b"); 
         $(".option2").text("(b) -28a + 30b");
@@ -562,17 +598,14 @@ $(document).ready(function() {
         }
 
         function endScreen() {
-        hide();
-        $(".question").show();
+        show();
+        $(".timer").hide();
         $(".question").text("Congratulations! You finished the quiz!");
-        $(".timer").show();
-        $(".timer").text("This is how you did");
         $(".option1").text("Correct Answers: " + correctAnswers);
         $(".option2").text("Incorrect Answers: " + incorrectAnswers);
-        $(".option3").text("");
-        $(".option4").text("");
+        $(".option3").hide()
+        $(".option4").hide()
         $(".resetgame").show();
-
         }
         function hide() {
             $(".timer").hide();
@@ -591,7 +624,7 @@ $(document).ready(function() {
 
          function startTimer() {
          var timing = setInterval(function(){
-                $('.timer').text((timer--) + " Seconds Left");
+                $('.timer').text("You have: " + (timer--) + " Seconds Left");
                 if (timer === -1) {
                     if (math1) {
                         setTimeout( function() {
@@ -688,23 +721,51 @@ $(document).ready(function() {
                             $(".answerimg").show();
                             $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
                             $(".answerimg").css('background-size', 'contain');
-                            $(".question").text("Times Up! The correct answer is (a) 5(x-4)(x+1)");
+                            $(".question").text("Times Up! The correct answer is (c) -4a + 22b");
                             incorrectAnswers++;
                             math5 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
                                 $(".answerimg").hide();
-                                timer = 10
-                                timing = setInterval(startTimer, 10000);
-                                clearInterval(timing);
                                 endScreen();
-                                show();
+                                $(".text").hide();
                             }, 2500);
                         }, 100); 
                     }
                 } 
-              }, 1000);
-              
+              }, 1000);     
+              $(".resetgame").click(function() {
+                $(".instructions").hide();
+                $(".instruct").hide();
+                $(".instructone").hide();
+                $(".instructtwo").hide();
+                $(".instructthree").hide();
+                $(".instructfour").hide();
+                $(".math").hide();
+                $(".english").hide();
+                $(".history").hide();
+                $(".science").hide();
+                $(".entertainment").hide();
+                $(".answerimg").hide();
+                $(".question").hide();
+                $(".timer").hide();
+                $(".option1").hide();
+                $(".option2").hide();
+                $(".option3").hide();
+                $(".option4").hide();
+                $(".resetgame").hide();
+                $(".gameone").show();
+                $(".gametwo").show();
+                $(".gamethree").show();
+                $(".gamefour").show();
+                $(".gamefive").show();
+                correctAnswers = 0;
+                incorrectAnswers = 0;   
+                timer = 10
+                timing = setInterval=(startTimer, 10000);
+                clearTimeout(timing);
+            });     
         }
     });
+    
 });
