@@ -379,7 +379,7 @@ $(document).ready(function() {
                             $(".answerimg").hide();
                             timer = 10
                             timing = setInterval(startTimer, 10000);
-                            clearInterval(timing);
+                        clearInterval(timing);
                             mathFourth();
                             show();
                         }, 2500);
@@ -399,7 +399,7 @@ $(document).ready(function() {
                             $(".answerimg").hide();
                             timer = 10
                             timing = setInterval(startTimer, 10000);
-                            clearInterval(timing);
+                        clearInterval(timing);
                             mathFifth();
                             show();
                         }, 2500);
@@ -439,7 +439,7 @@ $(document).ready(function() {
                             $(".answerimg").hide();
                             timer = 10
                             timing = setInterval(startTimer, 10000);
-                            clearInterval(timing);
+                        clearInterval(timing);
                             mathSecond();
                             show();
                         }, 2500);
@@ -459,7 +459,7 @@ $(document).ready(function() {
                             $(".answerimg").hide();
                             timer = 10
                             timing = setInterval(startTimer, 10000);
-                            clearInterval(timing);
+                        clearInterval(timing);
                             mathThird();
                             show();
                         }, 2500);
@@ -479,7 +479,7 @@ $(document).ready(function() {
                             $(".answerimg").hide();
                             timer = 10
                             timing = setInterval(startTimer, 10000);
-                            clearInterval(timing);
+                        clearInterval(timing);
                             mathFourth();
                             show();
                         }, 2500);
@@ -499,8 +499,8 @@ $(document).ready(function() {
                         setTimeout( function() {
                             $(".answerimg").hide();
                             timer = 10
-                            clearInterval(timing);
                             timing = setInterval(startTimer, 10000);
+                        clearInterval(timing);
                             mathFifth();
                             show();
                         }, 2500);
@@ -658,8 +658,8 @@ $(document).ready(function() {
                             }, 2500);
                             clearTimeout(timing);
                         }, 500); 
-                            clearInterval(timing);
                         timing = setInterval(startTimer, 10000);
+                        clearInterval(timing);
 
                     }
                     if (math3) {
@@ -685,8 +685,8 @@ $(document).ready(function() {
                             }, 2500);
                             clearTimeout(timing);
                         }, 500); 
-                        clearInterval(timing);
                         timing = setInterval(startTimer, 10000);
+                        clearInterval(timing);
     
                     }
                     if (math4) {
@@ -710,9 +710,8 @@ $(document).ready(function() {
                             }, 2500);
                             clearTimeout(timing);
                         }, 500); 
-                        clearInterval(timing);
                         timing = setInterval(startTimer, 10000);
-    
+                        clearInterval(timing);
                     }
                     if (math5) {
                         setTimeout( function() {
