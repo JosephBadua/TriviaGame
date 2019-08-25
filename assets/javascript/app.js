@@ -494,17 +494,18 @@ $(document).ready(function() {
                         $(".question").text("Incorrect. The correct answer is (a) 5(x-4)(x+1)");
                         incorrectAnswers++;
                         math4 = false;
+                        math5 = true;
                         console.log(incorrectAnswers);
                         setTimeout( function() {
                             $(".answerimg").hide();
                             timer = 10
-                            timing = setInterval(startTimer, 10000);
                             clearInterval(timing);
+                            timing = setInterval(startTimer, 10000);
                             mathFifth();
                             show();
                         }, 2500);
                     }, 100); 
-                    math5 = true;
+
                 } else if (math5) {
                     setTimeout( function() {
                         hide()
@@ -521,6 +522,8 @@ $(document).ready(function() {
                             $(".timer").hide();
                         }, 2500);
                     }, 100); 
+                    clearInterval(timing);
+                    clearTimeout(timing);
                 }
             });
        };
@@ -603,6 +606,8 @@ $(document).ready(function() {
         }
 
          function startTimer() {
+        clearInterval();
+        clearTimeout();
          var timing = setInterval(function(){
                 $('.timer').text("You have: " + (timer--) + " Seconds Left");
                 if (timer === -1) {
@@ -627,6 +632,9 @@ $(document).ready(function() {
                             }, 2500);
                         }, 500); 
                         timing = setInterval(startTimer, 10000);
+                        clearInterval(timing);
+
+        
                     }
                     if (math2) {
                         setTimeout( function() {
@@ -644,12 +652,15 @@ $(document).ready(function() {
                                 $(".answerimg").hide();
                                 mathThird();
                                 show();
-                            timer = 10
+                            timer = 10;
                             math3 = true;
                             $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
+                            clearTimeout(timing);
                         }, 500); 
+                            clearInterval(timing);
                         timing = setInterval(startTimer, 10000);
+
                     }
                     if (math3) {
                         setTimeout( function() {
@@ -667,12 +678,16 @@ $(document).ready(function() {
                                 $(".answerimg").hide();
                                 mathFourth();
                                 show();
-                            timer = 10
+                            timer = 10;
+                              timing = setInterval(startTimer, 10000);
                             math4 = true;
                             $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
+                            clearTimeout(timing);
                         }, 500); 
+                        clearInterval(timing);
                         timing = setInterval(startTimer, 10000);
+    
                     }
                     if (math4) {
                         setTimeout( function() {
@@ -686,15 +701,18 @@ $(document).ready(function() {
                             console.log(incorrectAnswers);
                             setTimeout( function() {
                                 $(".answerimg").hide();
-                                timer = 10
-                                timing = setInterval(startTimer, 10000);
-                                $(".timer").text("You have: " + (timer--) + " Seconds Left")
-                                clearInterval(timing);
                                 mathFifth();
                                 show();
+                            timer = 10;
+                              timing = setInterval(startTimer, 10000);
+                            math5 = true;
+                            $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
-                        }, 100); 
-                        math5 = true;
+                            clearTimeout(timing);
+                        }, 500); 
+                        clearInterval(timing);
+                        timing = setInterval(startTimer, 10000);
+    
                     }
                     if (math5) {
                         setTimeout( function() {
@@ -714,7 +732,7 @@ $(document).ready(function() {
                         }, 100); 
                     }
                 } 
-              }, 1000);     
+            }, 1000);     
               $(".resetgame").click(function() {
                 $(".instructions").hide();
                 $(".instruct").hide();
@@ -740,12 +758,9 @@ $(document).ready(function() {
                 $(".gamethree").show();
                 $(".gamefour").show();
                 $(".gamefive").show();
-                correctAnswers = 0;
-                incorrectAnswers = 0;   
-                questionUnanswered = 0;
-                timer = 10
-                timing = setInterval=(startTimer, 10000);
                 clearTimeout(timing);
+                clearInterval(timing);
+                timer = 10;
             });     
         }
     });
