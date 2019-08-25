@@ -11,18 +11,18 @@ var math4 = false
 var math5 = false
 
 var english = false
+var english1 = false
+var english2 = false
+var english3 = false
+var english4 = false
+var english5 = false
+
 var science = false
 var history = false
 var entertainment = false
 
-
-
 $(document).ready(function() {
-    $(".gameone").hide();
-    $(".gametwo").hide();
-    $(".gamethree").hide();
-    $(".gamefour").hide();
-    $(".gamefive").hide();
+    $(".back").hide();
     $(".instructions").hide();
     $(".instruct").hide();
     $(".instructone").hide();
@@ -54,11 +54,7 @@ $(document).ready(function() {
 
     $(".gameone").click(function(){
         math = true;
-        $(".gameone").hide();
-        $(".gametwo").hide();
-        $(".gamethree").hide();
-        $(".gamefour").hide();
-        $(".gamefive").hide();
+        $(".back").hide();
         $(".instructions").show();
         $(".instruct").show();
         $(".instructone").show();
@@ -69,11 +65,7 @@ $(document).ready(function() {
     })
     $(".gametwo").click(function(){
         english = true;
-        $(".gameone").hide();
-        $(".gametwo").hide();
-        $(".gamethree").hide();
-        $(".gamefour").hide();
-        $(".gamefive").hide();
+        $(".back").hide();
         $(".instructions").show();
         $(".instruct").show();
         $(".instructone").show();
@@ -84,11 +76,7 @@ $(document).ready(function() {
     })
     $(".gamethree").click(function(){
         science = true;
-        $(".gameone").hide();
-        $(".gametwo").hide();
-        $(".gamethree").hide();
-        $(".gamefour").hide();
-        $(".gamefive").hide();
+        $(".back").hide();
         $(".instructions").show();
         $(".instruct").show();
         $(".instructone").show();
@@ -99,11 +87,7 @@ $(document).ready(function() {
     })
     $(".gamefour").click(function(){
         history = true;
-        $(".gameone").hide();
-        $(".gametwo").hide();
-        $(".gamethree").hide();
-        $(".gamefour").hide();
-        $(".gamefive").hide();
+        $(".back").hide();
         $(".instructions").show();
         $(".instruct").show();
         $(".instructone").show();
@@ -114,11 +98,7 @@ $(document).ready(function() {
     })
     $(".gamefive").click(function(){
         entertainment = true;
-        $(".gameone").hide();
-        $(".gametwo").hide();
-        $(".gamethree").hide();
-        $(".gamefour").hide();
-        $(".gamefive").hide();
+        $(".back").hide();
         $(".instructions").show();
         $(".instruct").show();
         $(".instructone").show();
@@ -603,7 +583,7 @@ $(document).ready(function() {
         $(".question").text("Congratulations! You finished the quiz!");
         $(".option1").text("Correct Answers: " + correctAnswers);
         $(".option2").text("Incorrect Answers: " + incorrectAnswers);
-        $(".option3").hide()
+        $(".option3").text("Unanswered Questions: " + questionUnanswered);
         $(".option4").hide()
         $(".resetgame").show();
         }
@@ -634,7 +614,7 @@ $(document).ready(function() {
                             $(".timer").text("");
                             $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/pie.jpg")');
                             $(".question").text("Times Up! The first three digits are 3.14");
-                            incorrectAnswers++;
+                            questionUnanswered++;
                             math1 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
@@ -643,7 +623,7 @@ $(document).ready(function() {
                                 show();
                             timer = 10
                             math2 = true;
-                            $(".timer").text((timer--) + " Seconds Left")
+                            $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
                         }, 500); 
                         timing = setInterval(startTimer, 10000);
@@ -657,7 +637,7 @@ $(document).ready(function() {
                             $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/number4.jpg")');
                             $(".answerimg").css('background-size', 'contain');
                             $(".question").text("Times Up! 20% of 2 is 0.4");
-                            incorrectAnswers++;
+                            questionUnanswered++;
                             math2 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
@@ -666,7 +646,7 @@ $(document).ready(function() {
                                 show();
                             timer = 10
                             math3 = true;
-                            $(".timer").text((timer--) + " Seconds Left")
+                            $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
                         }, 500); 
                         timing = setInterval(startTimer, 10000);
@@ -680,7 +660,7 @@ $(document).ready(function() {
                             $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/24.png")');
                             $(".answerimg").css('background-size', 'contain');
                             $(".question").text("Times Up! The correct answer is (d) 24");
-                            incorrectAnswers++;
+                            questionUnanswered++;
                             math3 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
@@ -689,7 +669,7 @@ $(document).ready(function() {
                                 show();
                             timer = 10
                             math4 = true;
-                            $(".timer").text((timer--) + " Seconds Left")
+                            $(".timer").text("You have: " + (timer--) + " Seconds Left")
                             }, 2500);
                         }, 500); 
                         timing = setInterval(startTimer, 10000);
@@ -701,13 +681,14 @@ $(document).ready(function() {
                             $(".answerimg").css('background-image', 'url( "../TriviaGame/assets/images/numbers.jpg")');
                             $(".answerimg").css('background-size', 'contain');
                             $(".question").text("Times Up! The correct answer is (a) 5(x-4)(x+1)");
-                            incorrectAnswers++;
+                            questionUnanswered++;
                             math4 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
                                 $(".answerimg").hide();
                                 timer = 10
                                 timing = setInterval(startTimer, 10000);
+                                $(".timer").text("You have: " + (timer--) + " Seconds Left")
                                 clearInterval(timing);
                                 mathFifth();
                                 show();
@@ -722,7 +703,7 @@ $(document).ready(function() {
                             $(".answerimg").css('background-image', 'url("../TriviaGame/assets/images/liketerms.jpg")');
                             $(".answerimg").css('background-size', 'contain');
                             $(".question").text("Times Up! The correct answer is (c) -4a + 22b");
-                            incorrectAnswers++;
+                            questionUnanswered++;
                             math5 = false;
                             console.log(incorrectAnswers);
                             setTimeout( function() {
@@ -761,6 +742,7 @@ $(document).ready(function() {
                 $(".gamefive").show();
                 correctAnswers = 0;
                 incorrectAnswers = 0;   
+                questionUnanswered = 0;
                 timer = 10
                 timing = setInterval=(startTimer, 10000);
                 clearTimeout(timing);
